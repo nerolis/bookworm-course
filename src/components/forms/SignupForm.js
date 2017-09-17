@@ -51,7 +51,7 @@ render() {
                 value={data.email}
                 onChange={this.onChange}
             />
-            {errors.field && <InlineError text={errors.email} /> }
+            {errors.email && <InlineError text={errors.email} /> }
 
         </Form.Field>
 
@@ -65,7 +65,7 @@ render() {
                 value={data.password}
                 onChange={this.onChange}
             />
-            {errors.field && <InlineError text={errors.password} />}
+            {errors.password && <InlineError text={errors.password} />}
 
         </Form.Field>
 
