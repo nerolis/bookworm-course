@@ -15,5 +15,9 @@ export default {
 
         resetPassword: data =>
           axios.post('/api/auth/reset_password', { data }),
-    }
+    },
+    books: {
+      search: query =>
+        axios.get(`/api/books/search?q=${query}`, { query }).then(res => res.data.books)
+    },
 };
