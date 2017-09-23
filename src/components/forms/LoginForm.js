@@ -66,7 +66,7 @@ class LoginForm extends React.Component {
               <Form.Field error={!!errors.password}>
                 <label htmlFor='password'>Password</label>
                   <input
-                      type='text'
+                      type='password'
                       id='password'
                       name='password'
                       placeholder='Make it secure'

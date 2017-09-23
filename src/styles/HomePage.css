@@ -1,0 +1,32 @@
+ /* @import url('https://fonts.googleapis.com/css?family=Arsenal');
+ @import url('https://fonts.googleapis.com/css?family=Roboto');
+ 
+* {
+    box-sizing: border-box;
+}
+html, body {
+    background-color: black;
+    background-image: url('https://static.pexels.com/photos/110854/pexels-photo-110854.jpeg');
+    font-style: 'Roboto', sans-serif
+
+}
+a, p {
+    color: white;
+}
+
+h1 {
+    color: white
+}
+.container {
+    width: 100%;
+    max-width: 100%;
+    background: rgba(2, 37, 71, 0.51);
+    padding: 3em;
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    color: #fff;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.19);
+} */

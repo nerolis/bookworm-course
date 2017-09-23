@@ -24,6 +24,7 @@
     },
     "rules": {
         "linebreak-style": 0,
+        "no-underscore-dangle": { "allow": [ "_id" ] } ,
         "react/jsx-filename-extension": [
             1,
             {
