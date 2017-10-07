@@ -83,7 +83,7 @@ class BookForm extends React.Component {
     return (
       <Segment>
         <Form onSubmit={this.onSubmit} loading={loading}>
-          <Grid columns={2} fluid stackable>
+          <Grid columns={2} stackable>
             <Grid.Row>
               <Grid.Column>
                 <Form.Field error={!!errors.title}>
@@ -148,7 +148,7 @@ class BookForm extends React.Component {
 BookForm.propTypes = {
   submit: PropTypes.func.isRequired,
   book: PropTypes.shape({
-    goodreadsId: PropTypes.string.isRequired,
+    goodreadsId: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     authors: PropTypes.string.isRequired,
     covers: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
