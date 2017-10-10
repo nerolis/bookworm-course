@@ -1,16 +1,15 @@
 import React from 'react';
-import { Card, Icon } from 'semantic-ui-react';
+import { Segment, Card, Image } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 const AddBookCta = () => (
-  <Card centered>
-    <Card.Content textAlign='center'>
-      <Card.Header>Add new book</Card.Header>
-      <Link to='/books/new'>
-       <Icon name='plus circle' size='massive' />
-      </Link>
-    </Card.Content>
-  </Card>
+  <Link to='/books/new'>
+    <Image
+      src='https://vignette.wikia.nocookie.net/touhou/images/8/8f/De_Chen.png/revision/latest?cb=20150114061329'
+      size='medium'
+      label='Got a new dream? I would like to save it!'
+    />
+  </Link>
 );
 
 export default AddBookCta;
