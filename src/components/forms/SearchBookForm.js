@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types';
-import { Form, Dropdown } from 'semantic-ui-react';
+import { Form, Dropdown, Segment } from 'semantic-ui-react';
 import { searchBook } from '../../actions/books';
 
 class SearchBookForm extends React.Component {
@@ -48,6 +48,7 @@ class SearchBookForm extends React.Component {
   render() {
 
     return (
+     <Segment>
       <Form>
         <Dropdown 
          search
@@ -60,6 +61,7 @@ class SearchBookForm extends React.Component {
          
          />
       </Form>
+      </Segment>
     );
   }
 }

@@ -3,7 +3,7 @@ import { Segment } from 'semantic-ui-react';
 import SearchBookForm from '../forms/SearchBookForm';
 import BookForm from '../forms/BookForm';
 
-class NewBookPage extends React.Component {
+class NewDreamPage extends React.Component {
   state = {
     book: null,
   }
@@ -14,15 +14,14 @@ class NewBookPage extends React.Component {
 
     render() {
       return (
-        <Segment>
-          <h1>Add new book to your collection</h1>
+      <div>
           <SearchBookForm onBookSelect={this.onBookSelect} />
-          {this.state.book && <BookForm submit={this.addBook} book={this.state.book} />}
-        </Segment>          
+          {this.state.book && <BookForm submit={this.addBook} book={this.state.book} />}        
+      </div> 
 
       );
     }
   
 }
 
-export default NewBookPage; 
+export default NewDreamPage; 

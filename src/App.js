@@ -9,24 +9,26 @@ import ForgotPasswordPage from './components/pages/ForgotPasswordPage';
 import ResetPasswordPage from './components/pages/ResetPasswordPage';
 import SignupPage from './components/pages/SignupPage';
 import ConfirmationPage from './components/pages/ConfirmationPage';
-import NewBookPage from './components/pages/NewBookPage';
+import NewDreamPage from './components/pages/NewDreamPage';
 import UserRoute from './components/routes/UserRoute';
 import GuestRoute from './components/routes/GuestRoute';
 import TopNavigation from './components/navigation/TopNavigation';
+import TestPage from './components/pages/TestPage';
 
 const App = ({ location, isAuthenticated }) =>
 <div className='ui container'>
     {isAuthenticated && <TopNavigation/>}
     <Route location={location} path='/' exact component={HomePage} />
     <Route location={location} path='/confirmation/:token' exact component={ConfirmationPage} />
-    
+
     <GuestRoute location={location} path='/login' exact component={LoginPage} />
     <GuestRoute location={location} path='/signup' exact component={SignupPage} />
     <GuestRoute location={location} path='/forgot_password' exact component={ForgotPasswordPage}  />
     <GuestRoute location={location} path='/reset_password/:token' exact component={ResetPasswordPage} />
     
     <UserRoute location={location} path='/dashboard' exact component={DashboardPage} />
-    <UserRoute location={location} path='/books/new' exact component={NewBookPage} />
+    <UserRoute location={location} path='/books/new' exact component={NewDreamPage} />
+    <UserRoute location={location} path='/test/' exact component={TestPage} />
 
 </div>;
 

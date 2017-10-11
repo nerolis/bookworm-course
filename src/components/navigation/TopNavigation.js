@@ -1,15 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Menu, Dropdown, Image , Item} from 'semantic-ui-react';
+import { Menu, Dropdown, Image} from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import gravatarUrl from 'gravatar-url';
 import * as actions from '../../actions/auth';
 
 const TopNavigation = ({ user, logout }) => (
     <Menu secondary pointing inverted color='white'>
         <Menu.Item as={Link} to='/dashboard'>Dashboard</Menu.Item>
-        <Menu.Item as={Link} to='/Test'>Test</Menu.Item>
+        <Menu.Item as={Link} to='/Test'>Book Search</Menu.Item>
         <Menu.Menu position='right'>
             <Dropdown trigger={<Image avatar src={'https://static.zerochan.net/Chen.full.1066321.jpg'}/>}>
                 <Dropdown.Menu>
