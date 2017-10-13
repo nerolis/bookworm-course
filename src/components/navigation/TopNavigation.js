@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import * as actions from '../../actions/auth';
 
 const TopNavigation = ({ user, logout }) => (
-    <Menu secondary pointing inverted color='white'>
+    <Menu secondary pointing inverted>
         <Menu.Item as={Link} to='/dashboard'>Dashboard</Menu.Item>
         <Menu.Item as={Link} to='/Test'>Book Search</Menu.Item>
         <Menu.Menu position='right'>
