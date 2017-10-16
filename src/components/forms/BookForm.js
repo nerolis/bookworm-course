@@ -114,11 +114,12 @@ class BookForm extends React.Component {
 
                 <Form.Field error={!!errors.pages}>
                   <label htmlFor="pages">Pages</label>
-                  <input
-                    type="number"
+                  <input // cause of zero = false,  we do NOT do !data.pages
+                    disabled={data.pages === undefined} 
+                    type="text"
                     id="pages"
                     name="pages"
-                    value={data.pages}
+                    value={data.pages !== undefined ? data.pages : 'Loading...'}
                     onChange={this.onChangeNumber}
                   />
                   {errors.pages && <InlineError text={errors.pages} />}
@@ -148,11 +149,11 @@ class BookForm extends React.Component {
 BookForm.propTypes = {
   submit: PropTypes.func.isRequired,
   book: PropTypes.shape({
-    goodreadsId: PropTypes.number.isRequired,
+    goodreadsId: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     authors: PropTypes.string.isRequired,
     covers: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-    pages: PropTypes.number.isRequired
+    pages: PropTypes.number
   }).isRequired
 };
 
