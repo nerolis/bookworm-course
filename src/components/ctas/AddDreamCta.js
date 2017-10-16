@@ -2,7 +2,7 @@ import React from 'react';
 import { Image } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
-const AddBookCta = () => (
+const AddDreamCta = () => (
  <div>
   <Link to='/books/new'>
     <Image
@@ -22,4 +22,4 @@ const AddBookCta = () => (
   </div>
 );
 
-export default AddBookCta;
+export default AddDreamCta;

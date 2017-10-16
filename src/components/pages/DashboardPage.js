@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ConfirmEmailMessage from '../messages/ConfirmEmailMessage';
 import { allbookSelector } from '../../reducers/books';
-import AddBookCta from '../ctas/AddBookCta';
+import AddDreamCta from '../ctas/AddDreamCta';
 import { fetchBooks } from '../../actions/books';
-import { Segment } from 'semantic-ui-react';
+import { Segment, Message , Icon} from 'semantic-ui-react';
 
 class DashboardPage extends React.Component {
     componentDidMount = () => this.onInit(this.props);
@@ -15,11 +15,20 @@ class DashboardPage extends React.Component {
     
     render() {
     const { isConfirmed, books } = this.props;
+    const emptyMessage = (
+     <Message icon>
+      <Icon name='circle notched' loading />
+        <Message.Content>
+        <Message.Header>Just one second</Message.Header>
+             We are fetching that content for you.
+        </Message.Content>
+      </Message>
+  );
         return (
         <div>
-            
             {!isConfirmed && <ConfirmEmailMessage />}
-            {books.length === 0 ? <AddBookCta /> : <Segment inverted>Amount of books in DB is:{books.length}</Segment>}
+            {books.length === 0 ? emptyMessage : <Segment inverted>Amount of books in DB is: {books.length} </Segment>}
+            <AddDreamCta />
         </div>
         );
     }
