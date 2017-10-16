@@ -1,7 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import axios from 'axios';
 import SearchBookForm from '../forms/SearchBookForm';
 import BookForm from '../forms/BookForm';
+import { createBook } from '../../actions/books';
+
 
 class NewDreamPage extends React.Component {
   state = {
@@ -15,7 +19,7 @@ class NewDreamPage extends React.Component {
         .then(pages => this.setState({book: {...book, pages}}));
     ;}
 
-  addBook = () => console.log('test')
+  addBook = (book) => this.props.createBook(book).then(() => this.props.history.push('/dashboard'));
 
     render() {
       return (
@@ -29,4 +33,12 @@ class NewDreamPage extends React.Component {
   
 }
 
-export default NewDreamPage; 
+
+NewDreamPage.propTypes = {
+  createBook: PropTypes.func.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired
+  }).isRequired
+};
+
+export default connect(null, { createBook })(NewDreamPage); 

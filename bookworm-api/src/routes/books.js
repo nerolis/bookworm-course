@@ -5,6 +5,9 @@ import authenticate from '../middlewares/authenticate';
 import Book from '../models/Book';
 import parseErrors from '../utils/parseErrors';
 
+const router = express.Router();
+router.use(authenticate);
+
 router.get('/', (req, res) => {
   Book.find({ userId: req.currentUser._id })
     .then(books => res.json({ books }));
@@ -16,8 +19,7 @@ router.post('/', (req, res) => {
   .catch(err => res.status(400).json({ errors: parseErrors(err.errors) }));
 });
 
-const router = express.Router();
-router.use(authenticate);
+
 
 router.get('/search', (req, res) => {
   request
