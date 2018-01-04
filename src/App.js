@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
 import Loader from 'react-loader';
 import { connect } from 'react-redux';
+import { IntlProvider } from 'react-intl';
 import HomePage from './components/pages/HomePage';
 import LoginPage from './components/pages/LoginPage';
 import DashboardPage from './components/pages/DashboardPage';
@@ -16,7 +17,7 @@ import GuestRoute from './components/routes/GuestRoute';
 import TopNavigation from './components/navigation/TopNavigation';
 import TestPage from './components/pages/TestPage';
 import { fetchCurrentUser } from './actions/users';
-
+import messages from './messages';
 
 class App extends React.Component {
     componentDidMount() {
@@ -24,8 +25,9 @@ class App extends React.Component {
     }
 
     render() {
-        const { location, isAuthenticated, loaded } = this.props;
+        const { location, isAuthenticated, loaded, lang } = this.props;
         return (
+        <IntlProvider locale={lang} messages={messages[lang]}>
             <div className='ui container'>
             <Loader loaded={loaded}>
                 {isAuthenticated && <TopNavigation />}
@@ -42,6 +44,7 @@ class App extends React.Component {
                 <UserRoute location={location} path='/test/' exact component={TestPage} />
             </Loader>
             </div>
+        </IntlProvider>
         )
     }
 }
@@ -52,13 +55,15 @@ App.propTypes = {
     }).isRequired,
     isAuthenticated: PropTypes.bool.isRequired,
     fetchCurrentUser: PropTypes.func.isRequired,
-    loaded: PropTypes.bool.isRequired
+    loaded: PropTypes.bool.isRequired,
+    lang: PropTypes.string.isRequired
 };
 
 function mapStateToProps(state) {
     return {
         isAuthenticated: !!state.user.email,
-        loaded: state.user.loaded
+        loaded: state.user.loaded,
+        lang: state.locale.lang
     }
 }
 

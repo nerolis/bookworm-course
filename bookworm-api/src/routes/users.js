@@ -30,5 +30,4 @@ router.get('/current_user', authenticate, (req, res) => {
     }
   });
 })
-
 export default router;
