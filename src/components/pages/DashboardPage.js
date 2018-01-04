@@ -20,7 +20,7 @@ class DashboardPage extends React.Component {
       <Icon name='circle notched' loading />
         <Message.Content>
         <Message.Header>Just one second</Message.Header>
-             We are fetching that content for you.
+             We are fetching that content for you.ц
         </Message.Content>
       </Message>
   );

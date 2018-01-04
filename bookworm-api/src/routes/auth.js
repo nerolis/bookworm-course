@@ -28,6 +28,7 @@ router.post('/confirmation', (req, res) => {
         );
 })
 
+
 router.post('/reset_password_request', (req, res) => {
     User.findOne({ email: req.body.email })
         .then(user => {
