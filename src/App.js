@@ -16,6 +16,8 @@ import UserRoute from './components/routes/UserRoute';
 import GuestRoute from './components/routes/GuestRoute';
 import TopNavigation from './components/navigation/TopNavigation';
 import TestPage from './components/pages/TestPage';
+import CharactersPage from './components/pages/CharactersPage';
+import NewCharacterPage from './components/pages/NewCharacterPage';
 import { fetchCurrentUser } from './actions/users';
 import messages from './messages';
 
@@ -42,6 +44,9 @@ class App extends React.Component {
                 <UserRoute location={location} path='/dashboard' exact component={DashboardPage} />
                 <UserRoute location={location} path='/books/new' exact component={NewDreamPage} />
                 <UserRoute location={location} path='/test/' exact component={TestPage} />
+                <UserRoute location={location} path='/characters/' exact component={CharactersPage} />
+                <UserRoute location={location} path='/characters/new' exact component={NewCharacterPage} />
+            
             </Loader>
             </div>
         </IntlProvider>

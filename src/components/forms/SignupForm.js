@@ -1,8 +1,10 @@
-import React from 'react'
-import PropTypes from 'prop-types';
-import { Form, Button} from 'semantic-ui-react';
-import isEmail from 'validator/lib/isEmail';
-import InlineError from '../messages/InlineError';
+import React                 from 'react'
+import PropTypes             from 'prop-types';
+import { connect }           from 'react-redux'
+import { Form, Button}       from 'semantic-ui-react';
+import isEmail               from 'validator/lib/isEmail';
+import InlineError           from '../messages/InlineError';
+import { createUserRequest } from '../../actions/users';
 
 class SignupForm extends React.Component {
     state = {
@@ -23,7 +25,6 @@ onSubmit = (e) => {
     if (Object.keys(errors).length === 0) {
         this.setState({ loading: true });
         this.props.submit(this.state.data)
-        .catch(err => this.setState({ errors: err.response.data.errors, loading: false }));
     }
 }
 
@@ -80,4 +81,4 @@ SignupForm.propTypes = {
     submit: PropTypes.func.isRequired
 };
 
-export default SignupForm;
+export default connect(null, { submit: createUserRequest })(SignupForm);

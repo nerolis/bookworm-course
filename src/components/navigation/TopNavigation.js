@@ -14,7 +14,7 @@ const TopNavigation = ({ user, logout, hasBooks, setLocale }) => (
         <FormattedMessage id='nav.dashboard' defaultMessage='Dashboard'/>
         </Menu.Item>
         {hasBooks && <Menu.Item as={Link} to='/test/'>Search for a book</Menu.Item>}
-        
+        <Menu.Item as={Link} to='/characters'>Characters</Menu.Item>
         <Menu.Menu position='right'>
             <a role="button" tabIndex={0} onClick={() => setLocale("en")}>
                 EN
