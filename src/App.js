@@ -1,29 +1,29 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Route } from 'react-router-dom';
-import Loader from 'react-loader';
-import { connect } from 'react-redux';
-import { IntlProvider } from 'react-intl';
-import HomePage from './components/pages/HomePage';
-import LoginPage from './components/pages/LoginPage';
-import DashboardPage from './components/pages/DashboardPage';
-import ForgotPasswordPage from './components/pages/ForgotPasswordPage';
-import ResetPasswordPage from './components/pages/ResetPasswordPage';
-import SignupPage from './components/pages/SignupPage';
-import ConfirmationPage from './components/pages/ConfirmationPage';
-import NewDreamPage from './components/pages/NewDreamPage';
-import UserRoute from './components/routes/UserRoute';
-import GuestRoute from './components/routes/GuestRoute';
-import TopNavigation from './components/navigation/TopNavigation';
-import TestPage from './components/pages/TestPage';
-import CharactersPage from './components/pages/CharactersPage';
-import NewCharacterPage from './components/pages/NewCharacterPage';
-import { fetchCurrentUser } from './actions/users';
-import messages from './messages';
+import React                       from 'react';
+import PropTypes                   from 'prop-types';
+import { Route }                   from 'react-router-dom';
+import Loader                      from 'react-loader';
+import { connect }                 from 'react-redux';
+import { IntlProvider }            from 'react-intl';
+import HomePage                    from './components/pages/HomePage';
+import LoginPage                   from './components/pages/LoginPage';
+import DashboardPage               from './components/pages/DashboardPage';
+import ForgotPasswordPage          from './components/pages/ForgotPasswordPage';
+import ResetPasswordPage           from './components/pages/ResetPasswordPage';
+import SignupPage                  from './components/pages/SignupPage';
+import ConfirmationPage            from './components/pages/ConfirmationPage';
+import NewDreamPage                from './components/pages/NewDreamPage';
+import UserRoute                   from './components/routes/UserRoute';
+import GuestRoute                  from './components/routes/GuestRoute';
+import TopNavigation               from './components/navigation/TopNavigation';
+import TestPage                    from './components/pages/TestPage';
+import CharactersPage              from './components/pages/CharactersPage';
+import NewCharacterPage            from './components/pages/NewCharacterPage';
+import { fetchCurrentUserRequest } from './actions/users';
+import messages                    from './messages';
 
 class App extends React.Component {
     componentDidMount() {
-        if (this.props.isAuthenticated) this.props.fetchCurrentUser();
+        if (this.props.isAuthenticated) this.props.fetchCurrentUserRequest();
     }
 
     render() {
@@ -59,7 +59,7 @@ App.propTypes = {
         pathname:  PropTypes.string.isRequired
     }).isRequired,
     isAuthenticated: PropTypes.bool.isRequired,
-    fetchCurrentUser: PropTypes.func.isRequired,
+    fetchCurrentUserRequest: PropTypes.func.isRequired,
     loaded: PropTypes.bool.isRequired,
     lang: PropTypes.string.isRequired
 };
@@ -72,4 +72,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, { fetchCurrentUser })(App);
+export default connect(mapStateToProps, { fetchCurrentUserRequest })(App);

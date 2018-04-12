@@ -1,3 +1,4 @@
+
 import React                 from 'react'
 import PropTypes             from 'prop-types';
 import { connect }           from 'react-redux'
@@ -15,6 +16,10 @@ class SignupForm extends React.Component {
         loading: false,
         errors: {},
         }
+
+componentWillReceiveProps(nextProps) {
+    this.setState({ errors: nextProps.serverErrors })
+}
 
 onChange = (e) => this.setState({ ...this.state, data: { ...this.state.data, [e.target.name]: e.target.value} })
 
@@ -77,8 +82,14 @@ render() {
  }
 }
 
+function mapStateToProps(state) {
+    return {
+        serverErrors: state.formErrors.signup
+    };
+}
+
 SignupForm.propTypes = {
     submit: PropTypes.func.isRequired
 };
 
-export default connect(null, { submit: createUserRequest })(SignupForm);
+export default connect(mapStateToProps, { submit: createUserRequest })(SignupForm);
