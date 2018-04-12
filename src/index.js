@@ -33,9 +33,9 @@ sagaMiddleware.run(rootSaga);
 
   if (localStorage.bookwormJWT) {
       setAuthorizationHeader(localStorage.bookwormJWT);                                                                                         
-      store.dispatch(fetchCurrentUserSucces());
+      store.dispatch(fetchCurrentUserRequest());
   } else {
-      store.dispatch(fetchCurrentUserRequest({})); 
+      store.dispatch(fetchCurrentUserSucces({})); 
   }
 
 if (localStorage.alhubLang) {
