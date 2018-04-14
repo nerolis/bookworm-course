@@ -1,13 +1,8 @@
 import React from "react";
 import { Item, Segment } from 'semantic-ui-react'
 
-class DreamPage extends React.Component {
-  state = {};
-
-  render() {
-    const { item } = this.props;
-    return (
-      <div className='container'>
+const DreamPage = ({item}) => (
+      <div>
       {item.map(items => 
           <Item.Group key={items.childKey}>
           <Item>
@@ -23,7 +18,5 @@ class DreamPage extends React.Component {
       )}
       </div>
     )
-  }
-}
-
+    
 export default DreamPage
