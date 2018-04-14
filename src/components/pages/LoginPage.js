@@ -5,6 +5,10 @@ import { connect } from 'react-redux';
 import LoginForm from '../forms/LoginForm';
 import { login } from '../../actions/auth';
 
+const LoginPageStyles = {
+    paddingTop: '300px'
+}
+
 class LoginPage extends React.Component {
   
     submit = (data) =>
@@ -12,9 +16,9 @@ class LoginPage extends React.Component {
 
     render() {
         return (
-            <div>
+            <div style={LoginPageStyles} className='container'>
                 <LoginForm submit={this.submit} />
-                <Link to='/forgot_password'>Forgot password</Link>
+                <Link style={{color: 'white'}} to='/forgot_password'>Forgot password</Link>
             </div>
         )
     }

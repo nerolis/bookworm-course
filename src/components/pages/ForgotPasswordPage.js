@@ -5,6 +5,10 @@ import { Message } from "semantic-ui-react";
 import ForgotPasswordForm from "../forms/ForgotPasswordForm";
 import { resetPasswordRequest } from "../../actions/auth";
 
+const ForgotPasswordPageStyles = {
+  paddingTop: '300px'
+}
+
 class ForgotPasswordPage extends React.Component {
   state = {
     success: false
@@ -17,7 +21,7 @@ class ForgotPasswordPage extends React.Component {
 
   render() {
     return (
-      <div>
+      <div style={ForgotPasswordPageStyles} className='container'>
         {this.state.success ? (
           <Message>E-mail has been sent.</Message>
         ) : (

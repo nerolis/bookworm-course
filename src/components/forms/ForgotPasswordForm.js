@@ -46,18 +46,18 @@ class ForgotPasswordForm extends React.Component {
             <Form onSubmit={this.onSubmit} loading={loading}>
                 {!!errors.global && <Message negative>{errors.global}</Message>}
                 <Form.Field error={!!errors.email}>
-                    <label htmlFor="email">Email</label>
+                    <label style={{color: 'white'}} htmlFor="email">E-mail</label>
                     <input
                         type="email"
                         id="email"
                         name="email"
-                        placeholder="email"
+                        placeholder="Your e-mail"
                         value={data.email}
                         onChange={this.onChange}
                     />
                     {errors.email && <InlineError text={errors.email} />}
                 </Form.Field>
-                <Button primary>Reset password</Button>
+                <Button inverted color='black' primary>Reset password</Button>
             </Form>
         );
     }

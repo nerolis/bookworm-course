@@ -8,7 +8,7 @@ import * as actions from '../../actions/auth';
 import { allbookSelector } from '../../reducers/books';
 import { setLocale } from "../../actions/locale";
 
-const TopNavigation = ({ user, logout, hasBooks, setLocale }) => (
+const TopNavigation = ({ user, logout, hasBooks }) => (
     <Menu secondary pointing inverted>
         <Menu.Item as={Link} to='/dashboard'>
         <FormattedMessage id='nav.dashboard' defaultMessage='Dashboard'/>
@@ -16,18 +16,7 @@ const TopNavigation = ({ user, logout, hasBooks, setLocale }) => (
         {hasBooks && <Menu.Item as={Link} to='/test/'>Search for a book</Menu.Item>}
         <Menu.Item as={Link} to='/characters'>Characters</Menu.Item>
         <Menu.Menu position='right'>
-            <a role="button" tabIndex={0} onClick={() => setLocale("en")}>
-                EN
-            </a>{" "}
-            |
-            <a role="button" tabIndex={0} onClick={() => setLocale("ru")}>
-                RU
-            </a>
-            <Dropdown trigger={<Image avatar src={'https://static.zerochan.net/Chen.full.1066321.jpg'}/>}>
-                <Dropdown.Menu>
-                    <Dropdown.Item onClick={() => logout()}>Logout</Dropdown.Item>
-                </Dropdown.Menu>
-            </Dropdown>
+            <Dropdown.Item onClick={() => logout()}>Logout</Dropdown.Item>
         </Menu.Menu>
     </Menu>
 );

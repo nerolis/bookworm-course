@@ -4,8 +4,6 @@ import { Form, Button, Message } from 'semantic-ui-react';
 import Validator from 'validator';
 import InlineError from '../messages/InlineError';
 
-
-
 class LoginForm extends React.Component {
     state = {
         data: {
@@ -51,7 +49,7 @@ class LoginForm extends React.Component {
                </Message>
             )}
               <Form.Field error={!!errors.email}>
-                <label htmlFor='email'>E-mail</label>
+                <label style={{color: 'white'}} htmlFor='email'>E-mail</label>
                 <input
                   type='text'
                   id='email'
@@ -64,19 +62,19 @@ class LoginForm extends React.Component {
                   {errors.email && <InlineError text={errors.email} />}
               </Form.Field>
               <Form.Field error={!!errors.password}>
-                <label htmlFor='password'>Password</label>
+                <label style={{color: 'white'}} htmlFor='password'>Password</label>
                   <input
                       type='password'
                       id='password'
                       name='password'
-                      placeholder='Make it secure'
+                      placeholder='Your password'
                       value={data.password}
                       onChange={this.onChange}
 
                   />
                   {errors.password && <InlineError text={errors.password} />}
               </Form.Field>
-                <Button primary>Login</Button>
+                <Button inverted color='black' primary>Login</Button>
             </Form>
 
         );
