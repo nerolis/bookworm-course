@@ -19,7 +19,7 @@ import rootSaga                         from './rootSaga';
 import history                          from './history';
 // Reducers/Actions
 import rootReducer                                         from './rootReducer';
-import { fetchCurrentUserSucces, fetchCurrentUserRequest } from './actions/users';
+import { fetchCurrentUserSuccess, fetchCurrentUserRequest } from './actions/users';
 
 addLocaleData(en);
 addLocaleData(ru);
@@ -31,12 +31,12 @@ const store = createStore(
     );
 sagaMiddleware.run(rootSaga);
 
-  if (localStorage.bookwormJWT) {
-      setAuthorizationHeader(localStorage.bookwormJWT);                                                                                         
-      store.dispatch(fetchCurrentUserRequest());
-  } else {
-      store.dispatch(fetchCurrentUserSucces({})); 
-  }
+if (localStorage.bookwormJWT) {
+    setAuthorizationHeader(localStorage.bookwormJWT);
+    store.dispatch(fetchCurrentUserRequest());
+} else {
+    store.dispatch(fetchCurrentUserSuccess({}));
+}
 
 if (localStorage.alhubLang) {
     store.dispatch(localeSet(localStorage.alhubLang))

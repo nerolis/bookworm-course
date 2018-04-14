@@ -20,7 +20,7 @@ export const fetchCurrentUserRequest = () => ({
     type: FETCH_CURRENT_USER_REQUEST
 });
 
-export const fetchCurrentUserSucces = user => ({
+export const fetchCurrentUserSuccess = user => ({
     type: FETCH_CURRENT_USER_SUCCES,
     user
 });

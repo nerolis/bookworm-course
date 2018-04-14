@@ -6,12 +6,12 @@ import history               from '../history';
 
 export function* createUserSaga(action) {
   try {
-  const user = yield call(api.user.signup, action.user);
-  localStorage.bookwormJWT = user.token;
-  yield put(userLoggedIn(user));
-  history.push('/dashboard');
+    const user = yield call(api.user.signup, action.user);
+    localStorage.bookwormJWT = user.token;
+    yield put(userLoggedIn(user));
+    history.push("/dashboard");
   } catch (err) {
-    yield put(createUserFailure(err.response.data.errors))
+    yield put(createUserFailure(err.response.data.errors));
   }
 }
 
