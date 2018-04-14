@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { Item, Segment } from 'semantic-ui-react'
 
 const DreamPage = ({item}) => (
@@ -18,5 +19,9 @@ const DreamPage = ({item}) => (
       )}
       </div>
     )
-    
+
+DreamPage.propTypes = {
+  item: PropTypes.arrayOf(PropTypes.object).isRequired
+};
+
 export default DreamPage
