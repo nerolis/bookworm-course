@@ -1,8 +1,12 @@
 import React from 'react'
 import SignupForm from '../forms/SignupForm';
 
+const SignupPageStyles = {
+    paddingTop: '300px'
+}
+
 const SignupPage = () => (
-    <div>
+    <div style={SignupPageStyles} className='container'>
         <SignupForm />
     </div>
 )
