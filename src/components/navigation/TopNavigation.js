@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
-import { Menu, Dropdown, Image} from 'semantic-ui-react';
+import { Menu, Dropdown} from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import * as actions from '../../actions/auth';
 import { allbookSelector } from '../../reducers/books';
 import { setLocale } from "../../actions/locale";
 
-const TopNavigation = ({ user, logout, hasBooks }) => (
+const TopNavigation = ({ logout, hasBooks }) => (
     <Menu secondary pointing inverted>
         <Menu.Item as={Link} to='/dashboard'>
         <FormattedMessage id='nav.dashboard' defaultMessage='Dashboard'/>

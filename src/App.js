@@ -18,6 +18,7 @@ import TopNavigation               from './components/navigation/TopNavigation';
 import TestPage                    from './components/pages/TestPage';
 import CharactersPage              from './components/pages/CharactersPage';
 import NewCharacterPage            from './components/pages/NewCharacterPage';
+import DreamListPage               from './components/pages/DreamListPage';
 import { fetchCurrentUserRequest } from './actions/users';
 import messages                    from './messages';
 
@@ -46,6 +47,7 @@ class App extends React.Component {
                 <UserRoute location={location} path='/test/' exact component={TestPage} />
                 <UserRoute location={location} path='/characters/' exact component={CharactersPage} />
                 <UserRoute location={location} path='/characters/new' exact component={NewCharacterPage} />
+                <UserRoute location={location} path='/dream/list' exact component={DreamListPage} />
             
             </Loader>
             </div>
