@@ -17,7 +17,7 @@ const items = [
     meta: '2018.05.05',
   }
   ]
-
+  
 const DreamListPage = () => (
       <div className='ui container'>
          <DreamPage item={items} />

@@ -10,15 +10,14 @@ const LoginPageStyles = {
 }
 
 class LoginPage extends React.Component {
-  
     submit = (data) =>
      this.props.login(data).then(() => this.props.history.push('/dashboard'));
-
+     
     render() {
         return (
             <div style={LoginPageStyles} className='container'>
                 <LoginForm submit={this.submit} />
-                <Link style={{color: 'white'}} to='/forgot_password'>Forgot password</Link>
+                <Link style={{color: 'white'}} to='/forgot_password'>Forgot password?</Link>
             </div>
         )
     }

@@ -90,7 +90,7 @@ render() {
         </Form.Field>        
 
 
-        <Button inverted color='black' primary>Sign Up</Button>
+        <Button inverted fluid>Sign Up</Button>
       </Form>
   );
  }

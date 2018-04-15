@@ -57,7 +57,7 @@ class ForgotPasswordForm extends React.Component {
                     />
                     {errors.email && <InlineError text={errors.email} />}
                 </Form.Field>
-                <Button inverted color='black' primary>Reset password</Button>
+                <Button inverted fluid>Reset password</Button>
             </Form>
         );
     }
