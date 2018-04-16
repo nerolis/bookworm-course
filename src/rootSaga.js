@@ -1,6 +1,6 @@
-import { takeLatest }                                                       from 'redux-saga/effects';
-import { CREATE_USER_REQUEST, FETCH_CURRENT_USER_REQUEST }                  from './types';
-import { createUserSaga, fetchUserSaga}                                     from './sagas/usersSaga';
+import { takeLatest }                                        from "redux-saga/effects";
+import { CREATE_USER_REQUEST, FETCH_CURRENT_USER_REQUEST }   from "./types";
+import { createUserSaga, fetchUserSaga }                     from "./sagas/usersSaga";
 
 export default function* rootSaga() {
   yield takeLatest(CREATE_USER_REQUEST, createUserSaga);

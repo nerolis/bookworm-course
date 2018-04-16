@@ -16,8 +16,9 @@ export const createUserFailure = errors => ({
     errors
 });
 
-export const fetchCurrentUserRequest = () => ({
-    type: FETCH_CURRENT_USER_REQUEST
+export const fetchCurrentUserRequest = user => ({
+    type: FETCH_CURRENT_USER_REQUEST,
+    user
 });
 
 export const fetchCurrentUserSuccess = user => ({
