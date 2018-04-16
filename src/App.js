@@ -43,7 +43,7 @@ class App extends React.Component {
                 <GuestRoute location={location} path='/reset_password/:token' exact component={ResetPasswordPage} />
 
                 <UserRoute location={location} path='/dashboard' exact component={DashboardPage} />
-                <UserRoute location={location} path='/books/new' exact component={NewDreamPage} />
+                <UserRoute location={location} path='/dream/new' exact component={NewDreamPage} />
                 <UserRoute location={location} path='/test/' exact component={TestPage} />
                 <UserRoute location={location} path='/characters/' exact component={CharactersPage} />
                 <UserRoute location={location} path='/characters/new' exact component={NewCharacterPage} />

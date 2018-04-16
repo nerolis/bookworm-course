@@ -9,12 +9,19 @@ import { allbookSelector } from '../../reducers/books';
 import { setLocale } from "../../actions/locale";
 
 const TopNavigation = ({ logout, hasBooks }) => (
-    <Menu secondary pointing inverted>
+    <Menu items secondary borderless inverted>
         <Menu.Item as={Link} to='/dashboard'>
         <FormattedMessage id='nav.dashboard' defaultMessage='Dashboard'/>
         </Menu.Item>
-        {hasBooks && <Menu.Item as={Link} to='/test/'>Search for a book</Menu.Item>}
-        <Menu.Item as={Link} to='/characters'>Characters</Menu.Item>
+        <Menu.Item as={Link} to='/dream/new'>
+            <Dropdown.Item>New Dream</Dropdown.Item>
+        </Menu.Item>
+        <Dropdown item text='Deprecated'>
+            <Dropdown.Menu>
+                {hasBooks && <Menu.Item as={Link} to='/test/'>Search for a book</Menu.Item>}
+                <Menu.Item as={Link} to='/characters'>Characters</Menu.Item>
+            </Dropdown.Menu>
+        </Dropdown>
         <Menu.Menu position='right'>
             <Dropdown.Item onClick={() => logout()}>Logout</Dropdown.Item>
         </Menu.Menu>
@@ -22,12 +29,12 @@ const TopNavigation = ({ logout, hasBooks }) => (
 );
 
 TopNavigation.propTypes = {
-    user: PropTypes.shape({
-      email: PropTypes.string.isRequired
-    }).isRequired,
+    // user: PropTypes.shape({
+    //  email: PropTypes.string.isRequired
+    // }).isRequired,
     hasBooks: PropTypes.bool.isRequired,
     logout: PropTypes.func.isRequired,
-    setLocale: PropTypes.func.isRequired
+    // setLocale: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {
