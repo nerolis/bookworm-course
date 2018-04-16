@@ -27,4 +27,8 @@ export default {
       search: query =>
         axios.get(`/api/books/search?q=${query}`, { query }).then(res => res.data.books)
     },
+    dreams: {
+      fetchAll: () => axios.get('/api/dreams').then(res => res.data.books),
+      create: dream => axios.post('/api/dreams', { dream }).then(res => res.data.dream),
+    }
 };

@@ -32,7 +32,7 @@ class NewDreamForm extends React.Component {
                 name='text'
                 value={data.text}
                 onChange={this.onChange}
-                />
+              />
 
               <Input
                 icon='tags'
