@@ -2,17 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ConfirmEmailMessage from '../messages/ConfirmEmailMessage';
-import { allbookSelector } from '../../reducers/books';
-import { fetchBooks } from '../../actions/books';
+import { dreamsFetched } from '../../actions/dreams';
+
 import DreamListPage from './DreamListPage';
 
 class DashboardPage extends React.Component {
     componentDidMount = () => this.onInit(this.props);
     
-    onInit = props => props.fetchBooks();
+    onInit = props => props.dreamsFetched();
+
 
     
     render() {
+        
     const { isConfirmed } = this.props;
 
         return (
@@ -31,9 +33,9 @@ DashboardPage.propTypes = {
 function mapStateToProps(state) {
     return {
         isConfirmed: !!state.user.confirmed,
-        books: allbookSelector(state)
+        dreams: state.dreams
         
     };
 }
 
-export default connect(mapStateToProps, { fetchBooks })(DashboardPage)
+export default connect(mapStateToProps, { dreamsFetched })(DashboardPage)

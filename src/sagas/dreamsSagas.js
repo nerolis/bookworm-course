@@ -1,13 +1,13 @@
 import { call, put } from "redux-saga/effects";
-import { userLoggedIn } from "../actions/auth";
+import { dreamsFetched, dreamCreated } from "../actions/dreams";
 import api from "../api";
 
 export function* createDreamSaga(action) {
-    const dream = yield call(api.dreams.create, action.user);
-    yield put(userLoggedIn(dream));
+  const dream = yield call(api.dreams.create, action.user);
+  yield put(dreamCreated(dream));
 }
 
-export function* fetchDreamSaga() {
-  const user = yield call(api.dreams.fetchAll);
-  yield put(userLoggedIn(user));
+export function* fetchDreamSaga(action) {
+  const dreams = yield call(api.dreams.fetchAll, action.dreams);
+  yield put(dreamsFetched(dreams));
 }
