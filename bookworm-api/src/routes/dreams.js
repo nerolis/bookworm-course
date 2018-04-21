@@ -7,7 +7,8 @@ import parseErrors from '../utils/parseErrors';
 
 const router = express.Router();
 router.use(authenticate);
-const items = [
+
+const dreams = [
   {
     childKey: 0,
     image: 'https://i.ytimg.com/vi/fX_0ECJp4GM/maxresdefault.jpg',
@@ -25,7 +26,7 @@ const items = [
 ]
 router.get('/', (req, res) => {
   Dream.find({ userId: req.currentUser._id })
-    .then(dreams => res.json({ items }));
+    .then(test => res.json({dreams}));
 });
 
 router.post('/', (req, res) => {

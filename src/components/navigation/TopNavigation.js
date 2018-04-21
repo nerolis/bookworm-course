@@ -9,7 +9,7 @@ import { allbookSelector } from '../../reducers/books';
 import { setLocale } from "../../actions/locale";
 
 const TopNavigation = ({ logout, hasBooks }) => (
-    <Menu items secondary borderless inverted>
+    <Menu secondary borderless inverted>
         <Menu.Item as={Link} to='/dashboard'>
         <FormattedMessage id='nav.dashboard' defaultMessage='Dashboard'/>
         </Menu.Item>

@@ -4,7 +4,7 @@ import
   CREATE_USER_REQUEST,
   FETCH_CURRENT_USER_REQUEST,
   DREAM_CREATED,
-  DREAMS_FETCHED 
+  FETCH_DREAMS_REQUEST_SUCCES,
 } 
 from "./types";
 import { createUserSaga, fetchUserSaga }                     from "./sagas/usersSaga";
@@ -14,5 +14,5 @@ export default function* rootSaga() {
   yield takeLatest(CREATE_USER_REQUEST, createUserSaga);
   yield takeLatest(FETCH_CURRENT_USER_REQUEST, fetchUserSaga);
   yield takeLatest(DREAM_CREATED, createDreamSaga);
-  yield takeLatest(DREAMS_FETCHED, fetchDreamSaga);
+  yield takeLatest(FETCH_DREAMS_REQUEST_SUCCES, fetchDreamSaga);
 }

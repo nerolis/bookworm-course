@@ -1,11 +1,9 @@
-import { DREAM_CREATED, DREAMS_FETCHED } from "../types";
+import { DREAMS_FETCHED } from "../types";
 
-export default function dreams(state = { }, action = {}) {
+export default function dreams(state = [], action = {}) {
   switch (action.type) {
     case DREAMS_FETCHED:
-      return { ...state, ...action.dreams};
-    case DREAM_CREATED:
-      return { loaded: true };
+      return [...state, ...action.dreams ];
     default:
       return state;
   }

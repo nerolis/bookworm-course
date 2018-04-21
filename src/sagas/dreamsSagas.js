@@ -7,7 +7,7 @@ export function* createDreamSaga(action) {
   yield put(dreamCreated(dream));
 }
 
-export function* fetchDreamSaga(action) {
-  const dreams = yield call(api.dreams.fetchAll, action.dreams);
+export function* fetchDreamSaga() {
+  const dreams = yield call(api.dreams.fetchAll);
   yield put(dreamsFetched(dreams));
 }

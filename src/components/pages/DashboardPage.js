@@ -2,40 +2,35 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ConfirmEmailMessage from '../messages/ConfirmEmailMessage';
-import { dreamsFetched } from '../../actions/dreams';
-
+import { dreamsRequest } from '../../actions/dreams';
 import DreamListPage from './DreamListPage';
 
 class DashboardPage extends React.Component {
     componentDidMount = () => this.onInit(this.props);
-    
-    onInit = props => props.dreamsFetched();
 
+    onInit = props => props.dreamsRequest();
 
-    
     render() {
-        
-    const { isConfirmed } = this.props;
-
+    const { isConfirmed, dreams} = this.props;
         return (
         <div>
             {!isConfirmed && <ConfirmEmailMessage />}
-            <DreamListPage />
+            {dreams.length !== 0 && <DreamListPage dreams={dreams} />}
         </div>
         );
     }
 }
 
 DashboardPage.propTypes = {
-    isConfirmed: PropTypes.bool.isRequired               
+    isConfirmed: PropTypes.bool.isRequired,   
+    dreams: PropTypes.arrayOf(PropTypes.object).isRequired       
 }
 
 function mapStateToProps(state) {
     return {
         isConfirmed: !!state.user.confirmed,
         dreams: state.dreams
-        
     };
 }
 
-export default connect(mapStateToProps, { dreamsFetched })(DashboardPage)
+export default connect(mapStateToProps, { dreamsRequest })(DashboardPage)

@@ -1,5 +1,6 @@
 import React from "react";
-import { Input, Button, Form , TextArea, Image} from 'semantic-ui-react';
+import PropTypes from 'prop-types';
+import { Input, Button, Form , TextArea, Image} from 'semantic-ui-react'; 
 
 class NewDreamForm extends React.Component {
   state = {
@@ -16,8 +17,11 @@ class NewDreamForm extends React.Component {
   };
   onChange = (e) => this.setState({ ...this.state, data: { ...this.state.data, [e.target.name]: e.target.value } })
 
-  onSubmit = (e) => { 
+  onSubmit = () => {
+      this.setState({ loading: true });
+      this.props.submit(this.state.data)
   }
+
 
   render() {
     
@@ -50,11 +54,12 @@ class NewDreamForm extends React.Component {
              <Image src={this.state.data.image} onClick={() => this.setState({image: true})} size='small' label='Want to add image? Click me!' />
                 {this.state.image && <Input value={data.image} onChange={this.onChange} name='image' />}
             </div>
-          <Button basic color='blue'>Save</Button>
+          <Button basic inverted>Save</Button>
         </Form>
     );
   }
 }
 
+NewDreamForm.propTypes = { submit: PropTypes.func.isRequired };
 
 export default NewDreamForm;
