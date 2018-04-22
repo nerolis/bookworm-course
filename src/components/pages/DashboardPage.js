@@ -6,7 +6,7 @@ import { dreamsRequest } from '../../actions/dreams';
 import DreamListPage from './DreamListPage';
 
 class DashboardPage extends React.Component {
-    componentDidMount = () => this.onInit(this.props);
+    componentWillMount = () => this.onInit(this.props);
 
     onInit = props => props.dreamsRequest();
 
