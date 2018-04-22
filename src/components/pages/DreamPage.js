@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import { Item, Segment, Label } from 'semantic-ui-react'
+import { Item, Segment, Label, Button } from 'semantic-ui-react'
 
 const DreamPage = ({item}) => (
       <div>
@@ -15,6 +15,7 @@ const DreamPage = ({item}) => (
               </Item.Description>
               <Item.Extra>
               <Label as='a' basic size='small'>{items.tags}</Label>
+              <Button inverted size='mini' floated='right'>Delete</Button>
               </Item.Extra>
             </Item.Content>
           </Item>

@@ -2,8 +2,6 @@ export const USER_LOGGED_IN      = 'USER_LOGGED_IN';
 export const USER_LOGGED_OUT     = 'USER_LOGGED_OUT';
 export const BOOKS_FETCHED       = 'BOOKS_FETCHED';
 export const BOOK_CREATED        = 'BOOK_CREATED';
-export const LOCALE_SET          = 'LOCALE_SET';
-
 export const CREATE_USER_REQUEST = 'CREATE_USER_REQUEST';
 export const CREATE_USER_FAILURE = 'CREATE_USER_FAILURE';
 export const FETCH_CURRENT_USER_REQUEST = 'FETCH_CURRENT_USER_REQUEST';

@@ -4,15 +4,10 @@ import ReactDOM                         from 'react-dom';
 import { Provider }                     from 'react-redux';
 import { Router, Route }                from 'react-router-dom';
 import createSagaMiddleware             from 'redux-saga';
-import { addLocaleData }                from 'react-intl';
 import { createStore, applyMiddleware } from 'redux';
 import thunk                            from 'redux-thunk';
 import { composeWithDevTools }          from 'redux-devtools-extension';
 // Others
-import en                               from 'react-intl/locale-data/en'
-import ru                               from 'react-intl/locale-data/ru'
-import registerServiceWorker            from './registerServiceWorker';
-import { localeSet }                    from './actions/locale';
 import App                              from './App';
 import setAuthorizationHeader           from './utils/setAuthorizationHeader';
 import rootSaga                         from './rootSaga';
@@ -21,8 +16,7 @@ import history                          from './history';
 import rootReducer                                         from './rootReducer';
 import { fetchCurrentUserSuccess, fetchCurrentUserRequest } from './actions/users';
 
-addLocaleData(en);
-addLocaleData(ru);
+
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
@@ -38,10 +32,6 @@ if (localStorage.bookwormJWT) {
     store.dispatch(fetchCurrentUserSuccess({}));
 }
 
-if (localStorage.alhubLang) {
-    store.dispatch(localeSet(localStorage.alhubLang))
-}
-
 ReactDOM.render(
 <Router history={history}>
     <Provider store={store}>
@@ -50,4 +40,4 @@ ReactDOM.render(
 </Router>,
 document.getElementById('root')
 );
-registerServiceWorker();
+

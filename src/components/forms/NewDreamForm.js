@@ -6,7 +6,7 @@ class NewDreamForm extends React.Component {
   state = {
     data: {
       name: '',
-      image: 'http://i0.kym-cdn.com/photos/images/original/000/920/927/432.png',
+      image: '',
       description: '',
       tags: '',
       timestamp: Date.now(),
@@ -21,16 +21,16 @@ class NewDreamForm extends React.Component {
     errors: {},
     
   };
-  onChange = (e) => this.setState({ ...this.state, data: { ...this.state.data, [e.target.name]: e.target.value } })
+  onChange = e => this.setState({ ...this.state, data: { ...this.state.data, [e.target.name]: e.target.value } })
 
-  onSubmit = () => {
-      this.setState({ loading: true });
-      this.props.submit(this.state.data)
+  onSubmit = () => { 
+    this.setState({ loading: true }); 
+    this.props.submit(this.state.data);
   }
 
 
   render() {
-    
+  
     const { data, loading } = this.state
    
     return (
@@ -44,6 +44,7 @@ class NewDreamForm extends React.Component {
                 onChange={this.onChange}
               />
             </div>
+            
               <TextArea
                 placeholder='Tell us more' 
                 rows='6'

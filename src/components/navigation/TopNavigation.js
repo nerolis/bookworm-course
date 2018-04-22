@@ -1,18 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import { Menu, Dropdown} from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import * as actions from '../../actions/auth';
 import { allbookSelector } from '../../reducers/books';
-import { setLocale } from "../../actions/locale";
 
 const TopNavigation = ({ logout, hasBooks }) => (
     <Menu secondary borderless inverted>
-        <Menu.Item as={Link} to='/dashboard'>
-        <FormattedMessage id='nav.dashboard' defaultMessage='Dashboard'/>
-        </Menu.Item>
+        <Menu.Item as={Link} to='/dashboard'>Dashboard</Menu.Item>
         <Menu.Item as={Link} to='/dream/new'>
             <Dropdown.Item>New Dream</Dropdown.Item>
         </Menu.Item>
@@ -34,7 +30,6 @@ TopNavigation.propTypes = {
     // }).isRequired,
     hasBooks: PropTypes.bool.isRequired,
     logout: PropTypes.func.isRequired,
-    // setLocale: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {
@@ -44,4 +39,4 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect(mapStateToProps, { logout: actions.logout, setLocale })(TopNavigation);
+export default connect(mapStateToProps, { logout: actions.logout })(TopNavigation);
