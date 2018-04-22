@@ -11,15 +11,10 @@ class NewDreamPage extends React.Component {
       <div>
         <NewDreamForm submit={this.submit}  />   
       </div> 
-
       );
     }
-  
 }
 
-
-NewDreamPage.PropTypes = {
-  createDreamRequest: PropTypes.func.isRequired
-}
+NewDreamPage.PropTypes = { createDreamRequest: PropTypes.func.isRequired }
 
 export default connect(null, { createDreamRequest })(NewDreamPage);

@@ -7,8 +7,14 @@ class NewDreamForm extends React.Component {
     data: {
       name: '',
       image: 'http://i0.kym-cdn.com/photos/images/original/000/920/927/432.png',
-      text: '',
+      description: '',
       tags: '',
+      timestamp: Date.now(),
+      author: 'Mock Author',
+      text: '',
+      dreamId: Date.now(),
+      title: ''
+
     },
     loading: false,
     image: false,
@@ -30,11 +36,19 @@ class NewDreamForm extends React.Component {
     return (
 
         <Form onSubmit={this.onSubmit} loading={loading}>
+            <div className="field">
+              <Input
+                placeholder='Dream title'
+                name='title'
+                value={data.title}
+                onChange={this.onChange}
+              />
+            </div>
               <TextArea
                 placeholder='Tell us more' 
                 rows='6'
-                name='text'
-                value={data.text}
+                name='description'
+                value={data.description}
                 onChange={this.onChange}
               />
 

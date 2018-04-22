@@ -6,7 +6,7 @@ const schema = new mongoose.Schema({
   author: { type: String, required: true },
   tags: { type: String },
   image: { type: String },
-  dreamId: { type: mongoose.Schema.Types.ObjectId, required: true },
+  dreamId: { type: Number, required: true },
   timestamp: { type: Date, required: true },
   
 });

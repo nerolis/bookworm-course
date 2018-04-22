@@ -3,7 +3,7 @@ import { dreamsFetched, dreamCreated } from "../actions/dreams";
 import api from "../api";
 
 export function* createDreamSaga(action) {
-  const dream = yield call(api.dreams.create, action.user);
+  const dream = yield call(api.dreams.create, action.dream);
   yield put(dreamCreated(dream));
 }
 
