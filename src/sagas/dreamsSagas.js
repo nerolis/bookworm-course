@@ -26,5 +26,8 @@ export function* fetchDreamSaga() {
 
 export function* deleteDreamSaga(action) {
   const dream = yield call(api.dreams.deleteDream, action.dreamId);
+  
+  console.log(dream);
+
   yield put(dreamDeleted(dream));
 }

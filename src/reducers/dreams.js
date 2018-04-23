@@ -7,7 +7,7 @@ export default function dreams(state = [], action = {}) {
     case DREAM_CREATED:
       return [ ...state, ...action.dreams ];
     case DELETE_DREAM_SUCCES:
-      return state.filter(dream => dream.dreamId !== action.dreamId)
+      return state.filter(dream => dream.dreamId != action.dreamId)
     default:
       return state;
   }

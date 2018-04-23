@@ -19,4 +19,10 @@ router.post('/', (req, res) => {
     .catch(err => res.status(400).json({ errors: parseErrors(err.errors) }));
 });
 
+router.delete('/delete/:dreamId', (req, res) => {
+  Dream.deleteOne({ dreamId: Number(req.params.dreamId) })
+    .then(dream => res.json({dreamId: req.params.dreamId}))
+    .catch(err => res.status(400).json({ errors: parseErrors(err.errors) }));
+})
+
 export default router;
