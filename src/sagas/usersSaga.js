@@ -2,7 +2,7 @@ import { call, put }         from "redux-saga/effects";
 import { userLoggedIn }      from "../actions/auth";
 import { createUserFailure } from "../actions/users";
 import api                   from "../api";
-import history               from "../history";
+import history               from "../utils/history";
 
 export function* createUserSaga(action) {
   try {

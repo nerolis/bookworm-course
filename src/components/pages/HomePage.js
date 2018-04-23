@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as actions from '../../actions/auth';
 import * as css from '../../styles/HomePage.css';
-import history from '../../history'
+import history from '../../utils/history';
 
 const HomePageStyles = {
   paddingTop: '300px'

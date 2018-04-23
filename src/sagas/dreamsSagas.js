@@ -6,7 +6,7 @@ import {
   createDreamFailure
   
 } from "../actions/dreams";
-import history                         from "../history";
+import history                         from "../utils/history";
 
 export function* createDreamSaga(action) {
   try {

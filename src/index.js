@@ -11,7 +11,7 @@ import { composeWithDevTools }          from 'redux-devtools-extension';
 import App                              from './App';
 import setAuthorizationHeader           from './utils/setAuthorizationHeader';
 import rootSaga                         from './rootSaga';
-import history                          from './history';
+import history                          from './utils/history';
 // Reducers/Actions
 import rootReducer                                         from './rootReducer';
 import { fetchCurrentUserSuccess, fetchCurrentUserRequest } from './actions/users';
@@ -40,4 +40,3 @@ ReactDOM.render(
 </Router>,
 document.getElementById('root')
 );
-
