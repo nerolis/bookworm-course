@@ -14,8 +14,9 @@ import NewDreamPage                from './components/pages/NewDreamPage';
 import UserRoute                   from './components/routes/UserRoute';
 import GuestRoute                  from './components/routes/GuestRoute';
 import TopNavigation               from './components/navigation/TopNavigation';
-import NewCharacterPage            from './components/pages/NewCharacterPage';
+
 import DreamListPage               from './components/pages/DreamListPage';
+import SingleDreamPage             from './components/pages/SingleDreamPage';
 import { fetchCurrentUserRequest } from './actions/users';
 
 
@@ -39,8 +40,9 @@ class App extends React.Component {
                 <GuestRoute location={location} path='/reset_password/:token' exact component={ResetPasswordPage} />
 
                 <UserRoute location={location} path='/dashboard' exact component={DashboardPage} />
+               
+                <UserRoute location={location} path='/dream/read/:dreamId' exact component={SingleDreamPage} />
                 <UserRoute location={location} path='/dream/new' exact component={NewDreamPage} />
-                <UserRoute location={location} path='/characters/new' exact component={NewCharacterPage} />
                 <UserRoute location={location} path='/dream/list' exact component={DreamListPage} />
             
             </Loader>
