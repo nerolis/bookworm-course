@@ -30,5 +30,6 @@ export default {
     dreams: {
       fetchAll: () => axios.get('/api/dreams').then(res => res.data.dreams),
       create: dream => axios.post('/api/dreams', { dream }).then(res => res.data.dream),
+      deleteDream: dreamId => dreamId
     }
 };

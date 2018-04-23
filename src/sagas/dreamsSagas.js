@@ -3,7 +3,8 @@ import api                             from "../api";
 import { 
   dreamsFetched, 
   dreamCreated,
-  createDreamFailure
+  createDreamFailure,
+  dreamDeleted
   
 } from "../actions/dreams";
 import history                         from "../utils/history";
@@ -21,4 +22,9 @@ export function* createDreamSaga(action) {
 export function* fetchDreamSaga() {
   const dreams = yield call(api.dreams.fetchAll);
   yield put(dreamsFetched(dreams));
+}
+
+export function* deleteDreamSaga(action) {
+  const dream = yield call(api.dreams.deleteDream, action.dreamId);
+  yield put(dreamDeleted(dream));
 }

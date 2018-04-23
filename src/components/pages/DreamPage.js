@@ -15,7 +15,7 @@ const DreamPage = ({ item, deleteDream, openDream}) => (
               </Item.Description>
               <Item.Extra>
               <Label as='a' basic size='small'>{items.tags}</Label>
-              <Button inverted size='mini' floated='right' onClick={deleteDream}>Delete</Button>
+              <Button inverted size='mini' floated='right' onClick={() => deleteDream(items.dreamId)}>Delete</Button>
               </Item.Extra>
             </Item.Content>
           </Item>

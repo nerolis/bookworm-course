@@ -1,16 +1,13 @@
 import { takeLatest } from "redux-saga/effects";
-import 
-{
+import {
   CREATE_USER_REQUEST,
   FETCH_CURRENT_USER_REQUEST,
   FETCH_DREAMS_REQUEST_SUCCES,
   CREATE_DREAM_REQUEST,
-
-} 
-
-from "./types";
+  DELETE_DREAM_REQUEST
+} from "./types";
 import { createUserSaga, fetchUserSaga }                     from "./sagas/usersSaga";
-import { createDreamSaga, fetchDreamSaga }                   from "./sagas/dreamsSagas";
+import { createDreamSaga, fetchDreamSaga, deleteDreamSaga}   from "./sagas/dreamsSagas";
 
 export default function* rootSaga() {
   yield takeLatest(CREATE_USER_REQUEST, createUserSaga);
@@ -18,4 +15,6 @@ export default function* rootSaga() {
   
   yield takeLatest(CREATE_DREAM_REQUEST, createDreamSaga);
   yield takeLatest(FETCH_DREAMS_REQUEST_SUCCES, fetchDreamSaga);
+  yield takeLatest(DELETE_DREAM_REQUEST, deleteDreamSaga);
+
 }
