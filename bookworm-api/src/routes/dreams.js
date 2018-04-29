@@ -19,6 +19,13 @@ router.post('/', (req, res) => {
     .catch(err => res.status(400).json({ errors: parseErrors(err.errors) }));
 });
 
+router.get('/:dreamId', (req, res) => {
+  console.log(req.params.dreamId);
+  Dream.findOne({ dreamId: Number (req.params.dreamId) })
+    .then(dream => res.json({dream}))
+    .catch(err => res.status(400).json({ errors: parseErrors(err.errors) }));
+});
+
 router.delete('/delete/:dreamId', (req, res) => {
   Dream.deleteOne({ dreamId: Number(req.params.dreamId) })
     .then(dream => res.json({dreamId: req.params.dreamId}))

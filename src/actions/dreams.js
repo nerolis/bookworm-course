@@ -5,7 +5,9 @@ import {
   CREATE_DREAM_REQUEST, 
   CREATE_DREAM_FAILURE,
   DELETE_DREAM_REQUEST,
-  DELETE_DREAM_SUCCES
+  DELETE_DREAM_SUCCES,
+  FETCH_ONE_DREAM_REQUEST,
+  FETCH_ONE_DREAM_REQUEST_SUCCES
 } from '../types';
 
 export const dreamsRequest = dreams => ({
@@ -41,4 +43,14 @@ export const deleteDreamRequest = dreamId => ({
 export const dreamDeleted = dreamId => ({
   type: DELETE_DREAM_SUCCES,
   dreamId
+});
+
+export const fetchOneDream = dreamId => ({
+  type: FETCH_ONE_DREAM_REQUEST,
+  dreamId
+});
+
+export const fetchOneDreamSucces = dream => ({
+  type: FETCH_ONE_DREAM_REQUEST_SUCCES,
+  dream
 });

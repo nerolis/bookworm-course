@@ -21,15 +21,10 @@ export default {
           .then(res => res.data.user),
       
     },
-    books: {
-      fetchAll: () => axios.get('/api/books').then(res => res.data.books),
-      create: book => axios.post('/api/books', { book }).then(res => res.data.book),
-      search: query =>
-        axios.get(`/api/books/search?q=${query}`, { query }).then(res => res.data.books)
-    },
     dreams: {
       fetchAll: () => axios.get('/api/dreams').then(res => res.data.dreams),
       create: dream => axios.post('/api/dreams', { dream }).then(res => res.data.dream),
-      deleteDream: dreamId => axios.delete(`/api/dreams/delete/${dreamId}`).then(res => res.data.dreamId)
+      deleteDream: dreamId => axios.delete(`/api/dreams/delete/${dreamId}`).then(res => res.data.dreamId),
+      fetchOne: dreamId => axios.get(`/api/dreams/${dreamId}`).then(res => res.data.dream)
     }
 };

@@ -4,7 +4,8 @@ import {
   dreamsFetched, 
   dreamCreated,
   createDreamFailure,
-  dreamDeleted
+  dreamDeleted,
+  fetchOneDreamSucces
   
 } from "../actions/dreams";
 import history                         from "../utils/history";
@@ -26,8 +27,10 @@ export function* fetchDreamSaga() {
 
 export function* deleteDreamSaga(action) {
   const dream = yield call(api.dreams.deleteDream, action.dreamId);
-  
-  console.log(dream);
-
   yield put(dreamDeleted(dream));
+}
+
+export function* fetchOneDreamSaga(action) {
+  const dream = yield call(api.dreams.fetchOne, action.dreamId);
+  yield put(fetchOneDreamSucces(dream));
 }
